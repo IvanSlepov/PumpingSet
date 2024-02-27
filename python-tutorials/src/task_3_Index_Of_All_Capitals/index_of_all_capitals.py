@@ -26,5 +26,3 @@ def index_of_caps(word):
             capital_list.append(letter)
 
     print(capital_list)
-
-index_of_caps("HiKpmPgms")

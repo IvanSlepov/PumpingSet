@@ -15,7 +15,3 @@ def filter_list(list_to_check):
             int_list.append(entry)
 
     print(int_list)
-
-test_list = [1, 2, "g", 5, "TT"]
-
-filter_list(test_list)

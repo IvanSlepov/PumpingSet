@@ -36,5 +36,3 @@ def alphabet_soup(word):
         word_letter_indexes.remove(sorted_letter_index)
 
     print("Filtered by index of the letter in alphabet word: " + filtered_word)
-
-alphabet_soup("JAVASCRIPT")

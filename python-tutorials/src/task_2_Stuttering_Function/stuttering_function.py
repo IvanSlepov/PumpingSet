@@ -22,5 +22,3 @@ def stutter(word):
             break
 
     print(final_stutter)
-
-stutter("motherfucker")
