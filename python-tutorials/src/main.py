@@ -13,61 +13,17 @@ from task_12_Intersecting_Intervals import intersecting_intervals
 from task_13_Tallest_Skyscraper import tallest_skyscraper
 from task_14_Sum_Of_Prime_Numbers import sum_of_prime_numbers
 from task_15_Sharing_Is_Caring import sharing_is_caring
+from OOP_approach_tasks import task_1_2_5_9_string_and_date_manipulations
 
 
 print("hello, main.py")
 
-# ----Task1
-# is_word_singular_or_plural.is_plural("dingo")
+str_manipulator = task_1_2_5_9_string_and_date_manipulations.StringManipulation("gee")
 
-# ----Task2
-# stuttering_function.stutter("damn it")
-
-# ----Task3
-# index_of_all_capitals.index_of_caps("HkIjfal8")
-
-# ----Task4
-# filter_strings_from_array.filter_list(test_list)
-
-# ----Task 5
-# alphabet_soup.alphabet_soup("EDCBA")
-
-# ----Task6
-# my_int_list = [7, 4, 17, 14, 12, 3]
-# probabilities.probability(my_int_list, 16)
-
-# ----Task7
-# people_online_list = ["d", "f", "g", "h", "f", 8]
-# chat_room_status.chatroom_status(people_online_list)
-
-# ----Task8
-# some_list = [1, 2, 5, 2.5]
-# nth_smallest_integer.nth_smallest(some_list, 2)
-
-# ----Task9
-# date = "11/12/2019"
-# print(date_format.format_date(date))
-
-# ----Task10
-# some_cave = [[0, 0, 0, 0], [1, 1, 0, 1], [0, 1, 1, 1], [0, 0, 0, 0]]
-# stalactites_or_stalagmites.mineral_formation(some_cave)
-
-# ----Task11
-# balloon = [0,0,0,0,0,5,0,0,0,0,0]
-# water_balloon.pops(balloon)
-
-# ----Task12
-# list_to_check = [[1, 2], [5, 8], [6, 9]]
-# print(intersecting_intervals.count_overlapping(list_to_check, 7))
-
-# ----Task13
-# skyscraper_list_to_check = [[1, 0, 0, 0], [0, 1, 0], [0, 1, 1, 0], [1, 1, 1, 1]]
-# print(tallest_skyscraper.tallest_skyscraper(skyscraper_list_to_check))
-
-# ----Task14
-# some_list = [2, 3, 4, 11, 20, 50, 71]
-# print(sum_of_prime_numbers.sum_primes(some_list))
-
-# ----Task 15
-# test_list = [16, 10, 8, 7]
-# sharing_is_caring.show_the_love(test_list)
+if __name__ == '__main__':
+    print(str_manipulator.stutter())
+    print(str_manipulator.is_plural("horses"))
+    print(str_manipulator.alphabet_soup("damn it"))
+    print(task_1_2_5_9_string_and_date_manipulations.StringManipulation.remove_char_from_str
+          ("Nice shorts babe.", " ", "#"))
+    print(task_1_2_5_9_string_and_date_manipulations.StringManipulation.format_date("12/31/2019"))
