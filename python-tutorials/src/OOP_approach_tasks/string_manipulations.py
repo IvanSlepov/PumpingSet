@@ -2,7 +2,7 @@ from typing import Self
 from datetime import datetime
 
 
-# The following class implements the tasks 1,2 and 5
+# The following class implements the tasks 1-3, 5 and 9
 # using the OOP approach
 
 class StringManipulation:
@@ -58,7 +58,28 @@ class StringManipulation:
         return final_stutter
 
     """
-    This is a helper method to replace the given char in a string.
+    The 'index_of_caps' method processes either a word set
+    while constructing the object of the StringManipulation class
+    or passed directly to the method. It returns a dictionary with indexes
+    of the capital letters(if any) in the given word or an empty dict otherwise
+    """
+    def index_of_caps(self, word: str = None) -> dict:
+        capital_dict: dict = {}
+        index_of_cap_letter: int
+        index_of_caps_word_to_process: str = word if word else self.word_to_process
+
+        if not isinstance(index_of_caps_word_to_process, str):
+            print("The argument is not a string!!!")
+            return capital_dict
+
+        for letter in index_of_caps_word_to_process:
+            is_upper_letter = letter.isupper()
+            if is_upper_letter:
+                capital_dict[letter] = index_of_caps_word_to_process.index(letter)
+        return capital_dict
+
+    """
+    The 'remove_char_from_str' method replaces the given char in a string.
     It returns the replaced char str.
     """
     @staticmethod
