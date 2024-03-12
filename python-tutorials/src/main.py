@@ -13,61 +13,51 @@ from task_12_Intersecting_Intervals import intersecting_intervals
 from task_13_Tallest_Skyscraper import tallest_skyscraper
 from task_14_Sum_Of_Prime_Numbers import sum_of_prime_numbers
 from task_15_Sharing_Is_Caring import sharing_is_caring
+from OOP_approach_tasks.string_manipulations import StringManipulation
+from OOP_approach_tasks.list_manipulations import ListManipulations
 
 
-print("hello, main.py")
+some_list = [7, 4, 17, 14, 12, 3]
+min_form_list = [[0, 0, 0, 0], [1, 1, 0, 1], [0, 1, 1, 1], [0, 0, 0, 0]]
+for_pops_list = [0, 0, 0, 0, 2, 0, 0, 0, 0]
+for_count_overlapping = [[1, 2], [2, 3], [1, 3], [4, 5], [0, 1]]
+for_skyscraper = [[0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 1, 0], [0, 0, 1, 0, 1, 0], [0, 1, 1, 1, 1, 0], [1, 1, 1, 1, 1, 1]]
+for_prime_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                     11, 12, 13, 14, 15, 16, 17, 18,
+                     19, 20, 21, 22, 23, 24, 25, 26,
+                     27, 28, 29, 30, 31, 32, 33, 34,
+                     35, 36, 37, 38, 39, 40, 41, 42,
+                     43, 44, 45, 46, 47, 48, 49, 50,
+                     51, 52, 53, 54, 55, 56, 57, 58,
+                     59, 60, 61, 62, 63, 64, 65, 66,
+                     67, 68, 69, 70, 71, 72, 73, 74,
+                     75, 76, 77, 78, 79, 80, 81, 82,
+                     83, 84, 85, 86, 87, 88, 89, 90,
+                     91, 92, 93, 94, 95, 96, 97, 98,
+                     99, 100]
+for_prime_numbers_2 = [2, 3, 4, 11, 20, 50, 71]
+for_love = [4, 1, 4]
 
-# ----Task1
-# is_word_singular_or_plural.is_plural("dingo")
+str_manipulator = StringManipulation("gee")
+list_manipulator = ListManipulations(some_list)
 
-# ----Task2
-# stuttering_function.stutter("damn it")
+if __name__ == '__main__':
+    # print("hello, main.py")
+    # print(str_manipulator.stutter())
+    # print(str_manipulator.is_plural("horses"))
+    # print(str_manipulator.alphabet_soup("damn it"))
+    # print(StringManipulation.remove_char_from_str
+    #       ("Nice shorts babe.", " ", "#"))
+    # print(StringManipulation.format_date("12/31/2019"))
+    # print(str_manipulator.index_of_caps("hi"))
 
-# ----Task3
-# index_of_all_capitals.index_of_caps("HkIjfal8")
-
-# ----Task4
-# filter_strings_from_array.filter_list(test_list)
-
-# ----Task 5
-# alphabet_soup.alphabet_soup("EDCBA")
-
-# ----Task6
-# my_int_list = [7, 4, 17, 14, 12, 3]
-# probabilities.probability(my_int_list, 16)
-
-# ----Task7
-# people_online_list = ["d", "f", "g", "h", "f", 8]
-# chat_room_status.chatroom_status(people_online_list)
-
-# ----Task8
-# some_list = [1, 2, 5, 2.5]
-# nth_smallest_integer.nth_smallest(some_list, 2)
-
-# ----Task9
-# date = "11/12/2019"
-# print(date_format.format_date(date))
-
-# ----Task10
-# some_cave = [[0, 0, 0, 0], [1, 1, 0, 1], [0, 1, 1, 1], [0, 0, 0, 0]]
-# stalactites_or_stalagmites.mineral_formation(some_cave)
-
-# ----Task11
-# balloon = [0,0,0,0,0,5,0,0,0,0,0]
-# water_balloon.pops(balloon)
-
-# ----Task12
-# list_to_check = [[1, 2], [5, 8], [6, 9]]
-# print(intersecting_intervals.count_overlapping(list_to_check, 7))
-
-# ----Task13
-# skyscraper_list_to_check = [[1, 0, 0, 0], [0, 1, 0], [0, 1, 1, 0], [1, 1, 1, 1]]
-# print(tallest_skyscraper.tallest_skyscraper(skyscraper_list_to_check))
-
-# ----Task14
-# some_list = [2, 3, 4, 11, 20, 50, 71]
-# print(sum_of_prime_numbers.sum_primes(some_list))
-
-# ----Task 15
-# test_list = [16, 10, 8, 7]
-# sharing_is_caring.show_the_love(test_list)
+    # print(list_manipulator.filter_list())
+    # print(list_manipulator.probability(16))
+    # print(list_manipulator.chatroom_status())
+    # print(list_manipulator.nth_smallest(5))
+    # print(list_manipulator.mineral_formation(min_form_list))
+    # print(list_manipulator.pops(for_pops_list))
+    # print(list_manipulator.count_overlapping(2, for_count_overlapping))
+    # print(list_manipulator.tallest_skyscraper(for_skyscraper))
+    # print(list_manipulator.sum_primes(for_prime_numbers))
+    print(list_manipulator.show_the_love(for_love))

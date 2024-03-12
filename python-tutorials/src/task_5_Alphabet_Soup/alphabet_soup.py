@@ -10,8 +10,8 @@
 
 lookup = "abcdefghijklmnopqrstuvwxyz"
 
-def alphabet_soup(word):
 
+def alphabet_soup(word):
     if not isinstance(word, str):
         print("That's not a string!")
         return

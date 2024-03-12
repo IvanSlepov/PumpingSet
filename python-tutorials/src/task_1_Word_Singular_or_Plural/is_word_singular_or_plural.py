@@ -8,11 +8,14 @@
 # is_plural("dudes") ➞ True
 # is_plural("magic") ➞ False
 
-def is_plural(word):
+def is_plural(word: str) -> bool:
+    is_plural_word = False
 
     plural_ending = "s"
 
-    if word[len(word) -1] == plural_ending:
-        print(True)
+    if word[len(word) - 1] == plural_ending:
+        is_plural_word = True
+        return is_plural_word
     else:
-        print(False)
+        is_plural_word = False
+        return is_plural_word

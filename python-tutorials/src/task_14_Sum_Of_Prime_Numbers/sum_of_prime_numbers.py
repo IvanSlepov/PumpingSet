@@ -11,6 +11,16 @@
 # sum_primes([]) ➞ None
 
 
+"""
+THIS IMPLEMENTATION CONTAINS A BUG THAT CAN BE DISCOVERED
+IF THE LIST TO CHECK CONTAINS CERTAIN NUMBERS!!!
+
+FOR INSTANCE "22".
+
+THE FIXED VERSION INSIDE OF THE list_manipulations.py
+"""
+
+
 def sum_primes(some_list):
     sum_of_prime = 0
     look_up = [1, 2, 3, 4, 5, 6, 7, 8, 9]
