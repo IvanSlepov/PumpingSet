@@ -1,11 +1,11 @@
+import src.pages.locators as Locators
+import src.testData as TestData
+
 from src.pages.base_page import BasePage
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver import Remote
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from src.pages.locators.pizza_page_locators import PizzaPageLocators
-from src.pages.locators.checkout_locators import CheckoutLocators
-from src.testData.test_pages import TestPages
 
 
 class PizzaPage(BasePage):
@@ -22,7 +22,7 @@ class PizzaPage(BasePage):
 
         :return:None
         """
-        self._driver.get(TestPages.PRODUCT_PAGE)
+        self._driver.get(TestData.TestPages.PRODUCT_PAGE)
 
     def generate_product_list(self) -> list:
         """Fills product_list with PropertyOfProduct class instances.
@@ -30,7 +30,7 @@ class PizzaPage(BasePage):
 
         :return: list of PropertyOfProduct class instances
         """
-        products: list = self._driver.find_elements(*PizzaPageLocators.LOCATOR_PIZZAS)
+        products: list = self._driver.find_elements(*Locators.PizzaPageLocators.LOCATOR_PIZZAS)
         for product in products:
             self.product_list.append(PropertyOfProduct(product))
         return self.product_list
@@ -61,7 +61,7 @@ class PizzaPage(BasePage):
         :return: string
         """
         message = WebDriverWait(self._driver, 15).until(
-            EC.presence_of_element_located(CheckoutLocators.LOCATOR_NUMBER_OF_ITEMS_IN_CART)
+            EC.presence_of_element_located(Locators.CheckoutLocators.LOCATOR_NUMBER_OF_ITEMS_IN_CART)
         )
         return message.text
 
@@ -79,11 +79,11 @@ class PropertyOfProduct:
 
         :return: string
         """
-        return self._product.find_element(*PizzaPageLocators.LOCATOR_PIZZA_NAME).text
+        return self._product.find_element(*Locators.PizzaPageLocators.LOCATOR_PIZZA_NAME).text
 
     def click_add_to_cart(self) -> None:
         """Method that add item to the cart.
 
         :return:None
         """
-        self._product.find_element(*PizzaPageLocators.LOCATOR_ADD_TO_CART).click()
+        self._product.find_element(*Locators.PizzaPageLocators.LOCATOR_ADD_TO_CART).click()

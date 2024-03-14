@@ -1,0 +1,2 @@
+from checkout_locators import CheckoutLocators
+from pizza_page_locators import PizzaPageLocators

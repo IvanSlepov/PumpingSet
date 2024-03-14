@@ -1,6 +1,7 @@
+import src.testData as TestData
+import src.pages.locators as Locators
+
 from src.pages.base_page import BasePage
-from src.pages.locators.checkout_locators import CheckoutLocators
-from src.testData.test_pages import TestPages
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import Remote
 from selenium.webdriver.remote.webelement import WebElement
@@ -21,7 +22,7 @@ class CheckoutPage(BasePage):
 
         :return:None
         """
-        self._driver.get(TestPages.CHECKOUT_PAGE)
+        self._driver.get(TestData.TestPages.CHECKOUT_PAGE)
 
 
 class YourOrderComponent:
@@ -39,7 +40,7 @@ class YourOrderComponent:
         :return: list.
         """
         products_list: list = []
-        products = self._driver.find_elements(*CheckoutLocators.LOCATOR_PRODUCTS_IN_CART)
+        products = self._driver.find_elements(*Locators.CheckoutLocators.LOCATOR_PRODUCTS_IN_CART)
         for product in products:
             products_list.append(product.text)
         return products_list
@@ -70,12 +71,13 @@ class PaymentDetailsComponent:
         :return: None
         """
 
-        self._driver.find_element(*CheckoutLocators.LOCATOR_NAME).send_keys(your_name)
+        self._driver.find_element(*Locators.CheckoutLocators.LOCATOR_NAME).send_keys(your_name)
 
-        self._driver.find_element(*CheckoutLocators.LOCATOR_BILLING_PHONE).send_keys(Keys.CLEAR + phone)
+        self._driver.find_element(*Locators.CheckoutLocators.LOCATOR_BILLING_PHONE).send_keys(Keys.CLEAR + phone)
 
-        self._driver.find_element(*CheckoutLocators.LOCATOR_EMAIL).send_keys(Keys.CLEAR + email)
+        self._driver.find_element(*Locators.CheckoutLocators.LOCATOR_EMAIL).send_keys(Keys.CLEAR + email)
 
-        self._driver.find_element(*CheckoutLocators.LOCATOR_STREET).send_keys(Keys.CLEAR + street)
+        self._driver.find_element(*Locators.CheckoutLocators.LOCATOR_STREET).send_keys(Keys.CLEAR + street)
 
-        self._driver.find_element(*CheckoutLocators.LOCATOR_PREMISE_NUMBER).send_keys(Keys.CLEAR + premise_number)
+        (self._driver.find_element(*Locators.CheckoutLocators.LOCATOR_PREMISE_NUMBER).send_keys
+         (Keys.CLEAR + premise_number))
