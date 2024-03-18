@@ -26,6 +26,6 @@ def before_all(context):
 
 def before_scenario(context, scenario):
     if context.choose_browser == 1:
-        use_fixture(browser_chrome, context)
+        use_fixture(browser_chrome, context) #use_fixture
     elif context.choose_browser == 2:
         use_fixture(browser_firefox, context)
