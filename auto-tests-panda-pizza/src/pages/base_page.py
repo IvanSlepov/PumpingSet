@@ -1,10 +1,9 @@
 from src.testData.test_pages import TestPages
+from src.pages.locators.base_page_locators import BasePageLocators
 
-from selenium.webdriver import Firefox
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver import Remote
-from selenium.webdriver.chromium.webdriver import ChromiumDriver
 from selenium.webdriver.remote.webelement import WebElement
 
 
@@ -38,15 +37,22 @@ class BasePage:
 
     def go_to_site(self) -> None:
         """Method that goes to the main page.
-        :return:WebElement
+        :return: None
         """
         self._driver.get(self.base_url)
 
+    def close_blocking_message(self, time=10) -> None:
+        """Method that closes the message,
+        that appears when the page is opened
+        :return: None"""
+        WebDriverWait(self._driver, time).until(EC.presence_of_element_located
+        (
+            BasePageLocators.LOCATOR_BLOCKING_MESSAGE),
+            message=f"Can't find element by locator {BasePageLocators.LOCATOR_BLOCKING_MESSAGE}"
+        ).click()
 
-if __name__ == '__main__':
-    browser = Firefox()
-    browser.maximize_window()
-    panda_pizza = BasePage(browser)
-    panda_pizza.go_to_site()
-
-
+# if __name__ == '__main__':
+#     browser = Firefox()
+#     browser.maximize_window()
+#     panda_pizza = BasePage(browser)
+#     panda_pizza.go_to_site()

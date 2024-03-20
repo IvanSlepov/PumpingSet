@@ -4,7 +4,9 @@ from behave import *
 
 @fixture
 def browser_firefox(context):
-    context.browser = webdriver.Firefox()
+    context.options = webdriver.FirefoxOptions()
+    context.options.accept_untrusted_certs = True
+    context.browser = webdriver.Firefox(options=context.options)
     context.browser.maximize_window()
     yield context.browser
     context.browser.delete_all_cookies()
@@ -13,7 +15,9 @@ def browser_firefox(context):
 
 @fixture
 def browser_chrome(context):
-    context.browser = webdriver.Chrome()
+    context.options = webdriver.ChromeOptions()
+    context.options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    context.browser = webdriver.Chrome(options=context.options)
     context.browser.maximize_window()
     yield context.browser
     context.browser.delete_all_cookies()
@@ -26,6 +30,6 @@ def before_all(context):
 
 def before_scenario(context, scenario):
     if context.choose_browser == 1:
-        use_fixture(browser_chrome, context) #use_fixture
+        use_fixture(browser_chrome, context)
     elif context.choose_browser == 2:
         use_fixture(browser_firefox, context)
