@@ -33,6 +33,14 @@ class CheckoutPage(BasePage):
          until(EC.visibility_of_element_located(CheckoutLocators.LOCATOR_CART),
                message=f"Can't find elements by locator {CheckoutLocators.LOCATOR_CART} ").click())
 
+    def open_the_sushi_cart(self, time=10) -> None:
+        """Method that opens the cart
+        :return:None
+        """
+        (WebDriverWait(self._driver, time).
+         until(EC.visibility_of_element_located(CheckoutLocators.LOCATOR_CART_FOR_SUSHI),
+               message=f"Can't find elements by locator {CheckoutLocators.LOCATOR_CART_FOR_SUSHI} ").click())
+
     def get_list_of_products_in_cart(self) -> list:
         """Fills product_list with OrderComponent class instances.
         This method must be called before you start working with product methods.
@@ -50,6 +58,7 @@ class CheckoutPage(BasePage):
         cart_product_names_list: list = []
         for cart_product in self.cart_product_list:
             cart_product_names_list.append(cart_product.get_name())
+
         return cart_product_names_list
 
     def proceed_if_the_product_is_in_cart(self, cart_product_name: str) -> None:
@@ -60,6 +69,15 @@ class CheckoutPage(BasePage):
         for cart_product in self.cart_product_list:
             if cart_product.get_name() == cart_product_name:
                 cart_product.click_proceed_with_checkout()
+
+    def proceed_if_the_sushi_is_in_cart(self, cart_product_name: str) -> None:
+        """Method that proceeds with checkout if required product is in the cart.
+         :param: string
+         :return: None
+         """
+        for cart_product in self.cart_product_list:
+            if cart_product.get_name() == cart_product_name:
+                cart_product.click_proceed_with_sushi_checkout()
 
     def place_order(self) -> None:
         """Method that places the order.
@@ -109,6 +127,12 @@ class OrderComponent:
         :return:None
         """
         self._cart_product.find_element(*CheckoutLocators.LOCATOR_PROCEED_WITH_CHECKOUT).click()
+
+    def click_proceed_with_sushi_checkout(self) -> None:
+        """Method that add item to the cart.
+        :return:None
+        """
+        self._cart_product.find_element(*CheckoutLocators.LOCATOR_PROCEED_WITH_SUSHI_CHECKOUT).click()
 
 
 class PaymentDetailsComponent:
