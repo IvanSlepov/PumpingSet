@@ -18,6 +18,7 @@ messages: list = []
 
 @app.get("/")
 def root() -> dict[str, str]:
+    print("ss")
     return {"Here we go": "again"}
 
 
