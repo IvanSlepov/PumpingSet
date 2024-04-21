@@ -3,7 +3,7 @@ import sys
 sys.path.append('C:\\Users\\islie\\Documents\\work\\PumpingSET\\PumpingSet\\auto-tests-panda-pizza\\src')
 print(sys.path)
 
-# test
+# test 2
 
 import os
 
