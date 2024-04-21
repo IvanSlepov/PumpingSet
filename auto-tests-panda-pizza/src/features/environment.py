@@ -17,6 +17,7 @@ def browser_firefox(context):
 def browser_chrome(context):
     context.options = webdriver.ChromeOptions()
     context.options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    # context.options.add_argument('headless')
     context.browser = webdriver.Chrome(options=context.options)
     context.browser.maximize_window()
     yield context.browser
@@ -25,7 +26,8 @@ def browser_chrome(context):
 
 
 def before_all(context):
-    context.choose_browser = int(input("In which browser do you want to run test(1 - Chrome, 2 - Firefox):\n"))
+    # context.choose_browser = int(input("In which browser do you want to run test(1 - Chrome, 2 - Firefox):\n"))
+    context.choose_browser = 1
 
 
 def before_scenario(context, scenario):
