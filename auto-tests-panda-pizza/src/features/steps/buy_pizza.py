@@ -1,7 +1,7 @@
 import time
 
 from behave import *
-from selenium import webdriver
+# from selenium.webdriver import wait
 # from behave_webdriver.steps import *
 # - looks like we do not need this import as of 2024
 # it causes the error:TypeError: metaclass conflict:
@@ -34,7 +34,6 @@ def step(context):
 @then("They choose some pizza and add it to the cart")
 def step(context):
     context.pizza_page.generate_product_list()
-    time.sleep(2)
     context.pizza_page.add_product_to_shopping_cart(TestItems.TEST_PRODUCT_NAME)
     assert context.pizza_page.check_items_in_cart() == TestItems.TEST_PRODUCT_QUANTITY
 
@@ -43,24 +42,19 @@ def step(context):
 def step(context):
     context.checkout_page = CheckoutPage(context.browser)
     context.checkout_page.open_the_cart()
-    time.sleep(2)
 
 
 @then("User continues with checkout if required product is in cart")
 def step(context):
     context.checkout_page.get_list_of_products_in_cart()
-    time.sleep(2)
     context.checkout_page.proceed_if_the_product_is_in_cart(TestItems.TEST_PRODUCT_NAME)
 
 
 @then('User populates the required data and places the order')
 def step(context):
-    time.sleep(2)
     context.checkout_page.place_order()
 
 
 @then("User waits for the placed order confirmation")
 def step(context):
-    time.sleep(2)
     assert context.checkout_page.confirm_order_placed()
-    time.sleep(5)
